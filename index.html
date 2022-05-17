@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Liquidaciones UF</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+
+  <header class="visible-xs nav">
+
+    <nav class="navbar">
+      <span class="text-white">
+        <h3 class="text-white">UNIÓN FERROVIARIA</h3>
+      </span>
+
+      <a class=""><img src="assets/img/logo.png" alt="" width="60" height="60"></a>
+
+    </nav><br>
+
+  </header>
+
+  <div class="container-fluid">
+    <section class="main row">
+
+      <div class="jumbotron  jumbotron-test hidden-xs col-xs-12 col-sm-12 col-md-12 col-lg-12 opa2">
+        <img class="derecha" src="assets/img/logo.png" alt="" width="160" height="160">
+        <h1 class="">UNIÓN FERROVIARIA</h1>
+        <h2 class="">LINEA SAN MARTIN</h2>
+      </div>
+
+
+      <article id="article1" class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+
+        <br>
+
+        <div class="panel panel-default opa">
+
+          <div class="panel-body">
+
+
+            <div class="col-lg-8">
+
+              <select class="form-control" id="selector_especialidad" oninput="displayMayorFuncion()">
+
+                <option value="1">Categoria Actual</option>
+                <option value="Instructor">Instructor</option>
+                <option value="Supervisor_Especializado">Supervisor Especializado</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Oficial_Especializado">Oficial Especializado</option>
+                <option value="Oficial">Oficial</option>
+                <option value="Operario_Especializado">Operario Especializado</option>
+                <option value="Operario">Operario</option>
+                <option value="Aprendiz">Aprendiz</option>
+
+              </select><br>
+
+              <select class="mx-auto form-control" id="selector_mayor_funcion" style="display:none;" onchange="">
+
+                <option value="1">Categoria Relevada</option>
+                <option id="sel_mf_instructor" value="Instructor">Instructor</option>
+                <option id="sel_mf_supervisor_especializado" value="Supervisor_Especializado">Supervisor Especializado</option>
+                <option id="sel_mf_supervisor" value="Supervisor">Supervisor</option>
+                <option id="sel_mf_oficial_especializado" value="Oficial_Especializado">Oficial Especializado</option>
+                <option id="sel_mf_oficial" value="Oficial">Oficial</option>
+                <option id="sel_mf_operario_especializado" value="Operario_Especializado">Operario Especializado</option>
+                <option id="sel_mf_operario" value="Operario">Operario</option>
+                <option id="sel_mf_aprendiz" value="Aprendiz">Aprendiz</option>
+              </select><br>
+
+
+
+              <div class="checkbox col-xs-12 ">
+                <label class="text-white checkbox-inline"><input type="checkbox" id="checkbox_mayor_funcion"
+                    onclick="mayorFuncion()">Calcular Mayor Función</label><br>
+                <label class="text-white checkbox-inline "><input type="checkbox" id="checkbox_plus_chofer"
+                    onclick="plusChofer()">Calcular Plus Chofer</label><br>
+                <label class="text-white checkbox-inline "><input type="checkbox" id="checkbox_viatico_guarda"
+                    onclick="viaticoGuarda()">Calcular Viatico Guarda</label><br>
+                <label class="text-white checkbox-inline "><input type="checkbox" id="checkbox_plus_pernocte"
+                    onclick="plusPernocte()">Calcular Pernocte</label><br>
+                <label class="text-white checkbox-inline "><input type="checkbox" id="checkbox_guarderia"
+                    onclick="plusGuarderia()">Calcular Guarderia</label><br>
+                <label class="text-white checkbox-inline "><input type="checkbox" id="checkbox_niveles_dificultad"
+                    onclick="plusNivelesDificultad()">Calcular Niveles Dificultad</label><br>
+                <label class="text-white checkbox-inline "><input type="checkbox" id="checkbox_titulos"
+                    onclick="plusTitulos()">Calcular Titulos</label><br>
+                <label class="text-white checkbox-inline "><input type="checkbox" id="SActual"
+                    onclick="SalarioActual()">Grilla Salarial</label>
+              </div><br>
+            </div>
+          </div>
+        </div>
+
+
+
+      </article>
+
+
+
+      <article id="article2" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
+        <br>
+
+        <div class="panel panel-default opa">
+
+          <div class="panel-body ">
+
+            <div class="col-lg-12 ">
+              <input class="form-control" id="anos_antiguedad" type="number" placeholder="Años Antiguedad"><br>
+              <input class="form-control" id="horas_feriado" type="number" placeholder="Horas Feriado"><br>
+              <input class="form-control" id="horas_nocturnas" type="number" placeholder="Horas Nocturnas"><br>
+              <input class="form-control" id="cantidad_viaticos" type="number" placeholder="Dias Viaticos"><br>
+              <input class="form-control" id="horas_extras_50" type="number" placeholder="Horas extras al 50%"><br>
+              <input class="form-control" id="horas_extras_100" type="number" placeholder="Horas extras al 100%"><br>
+              <div class="mx-auto" id="div_input_niveles_dificultad" style="display:none;"><input
+                  id="input_niveles_dificultad" class="form-control" placeholder="Cantidad Nivel de Dificultad"><br>
+              </div>
+              <div class="mx-auto" id="div_input_mayor_funcion" style="display:none;"><input id="input_mayor_funcion"
+                  class="form-control" placeholder="Días Mayor Funcion"><br></div>
+              <div class="mx-auto" id="div_input_plus_chofer" style="display:none;"><input id="input_plus_chofer"
+                  class="form-control" placeholder="Días Plus Chofer"><br></div>
+              <div class="mx-auto" id="div_input_plus_pernocte" style="display:none;"><input id="input_plus_pernocte"
+                  class="form-control" placeholder="Cantidad Días Pernocte"><br></div>
+
+
+
+              <button class="btn btn-primary" onclick="calcular()">Calcular</button>
+              <button class="btn btn-success" onclick="limpiar()">Limpiar</button><br><br>
+              </div>
+          </div>
+        </div>
+
+      </article>
+
+
+
+
+
+      <article id="article3" class="col-xs-12 col-sm-12 col-md-6 col-lg-4 text-center">
+
+        <br>
+        <div class="panel panel-default opa">
+
+          <div class="panel-body">
+            <table class="cleafix table table-hover table-warning">
+              <tr class="">
+                <th>BASICO</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_basico">0.00</span></td>
+              </tr>
+              <tr class="">
+                <th>ANTIGUEDAD</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_antiguedad">0.00</span></td>
+              </tr>
+              <tr class="">
+                <th>ADICIONAL CONVENIO</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_adicional_convenio">0.00</span></td>
+              </tr>
+              <tr class="">
+                <th>HORAS FERIADO</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_horas_feriado">0.00</span></td>
+              </tr>
+              <tr class="">
+                <th>HORAS NOCTURNAS</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_horas_nocturnas">0.00</span></td>
+              </tr>
+              <tr class="">
+                <th>DIAS VIATICOS</th>
+                <td></td>
+                <td>
+                  </th>
+                <td></td>
+                <td></td>
+                <td><span id="total_dias_viaticos">0.00</span></td>
+              </tr>
+              <tr class="">
+                <th>HORAS EXTRAS 50%</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_horas_extras_50">0.00</span></td>
+              </tr>
+              <tr>
+                <th>HORAS EXTRAS 100%</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_horas_extras_100">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_mayor_funcion" style="display:none;">
+                <th>MAYOR FUNCION</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_mayor_funcion">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_plus_chofer" style="display:none;">
+                <th>PLUS CHOFER</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_plus_chofer">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_viatico_guarda" style="display:none;">
+                <th>VIATICO GUARDA</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_viatico_guarda">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_plus_fallo_caja" style="display:none;">
+                <th>FALLO DE CAJA</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_fallo_caja">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_plus_pernocte" style="display:none;">
+                <th>PERNOCTE</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_plus_pernocte">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_niveles_dificultad_1" style="display:none;">
+                <th>NIVEL DIFICULTAD 1</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_nivel_dificultad_1">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_niveles_dificultad_2" style="display:none;">
+                <th>NIVEL DIFICULTAD 2</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_nivel_dificultad_2">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_niveles_dificultad_3" style="display:none;">
+                <th>NIVEL DIFICULTAD 3</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_nivel_dificultad_3">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_niveles_dificultad_4" style="display:none;">
+                <th>NIVEL DIFICULTAD 4</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_nivel_dificultad_4">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_niveles_dificultad_5" style="display:none;">
+                <th>NIVEL DIFICULTAD 5</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_nivel_dificultad_5">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_terciario" style="display:none;">
+                <th>TERCIARIO</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_terciario">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_universitario" style="display:none;">
+                <th>UNIVERSITARIO</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_universitario">0.00</span></td>
+              </tr>
+              <tr id="tabla_total_jornada_extendida" style="display:none;">
+                <th>JORNADA EXTENDIDA</th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><span id="total_jornada_extendida">0.00</span></td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+      </article>
+
+
+      <article id="article4" class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-center" style="display:none">
+        <br>
+
+        <div class="panel panel-default">
+          <div class=" panel-heading">
+            <h2>GRILLA SALARIAL ACTUALIZADA</h2>
+          </div>
+          <div class="bg-dark panel-body ">
+
+
+
+
+
+
+            <div class="col-lg-12 ">
+
+              <select class="mx-auto form-control col-lg-4 " id="grillasalarial" onchange="selectgrilla()">
+
+                <option value="GCategoria">Categoria</option>
+                <option value="Instructor">Instructor</option>
+                <option value="SupervisorEsp">Supervisor Especializado</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="OficialEsp">Oficial Especializado</option>
+                <option value="Oficial">Oficial</option>
+                <option value="OperarioEsp">Operario Especializado</option>
+                <option value="Operario">Operario</option>
+                <option value="Aprendiz">Aprendiz</option>
+              </select><br><br>
+
+              <!--Table-->
+              <table class="table table-striped table-hover table-bordered cleafix table-warning">
+                <!--Table head-->
+                <thead>
+
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
+                <tbody>
+                  <tr>
+                    <th scope="row">BASICO</th>
+                    <td><span id="tbasico">0.00</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">ANTIGUEDAD (1 año)</th>
+                    <td><span id="tantiguedad">0.00</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">ADICIONAL CONVENIO</th>
+                    <td><span id="tconvenio">0.00</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">VIATICO (x26 dias)</th>
+                    <td><span id="tviatico">0.00</span></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">NETO EN MANO</th>
+                    <td><span id="tneto">0.00</span></td>
+                  </tr>
+                </tbody>
+                <!--Table body-->
+              </table>
+              <!--Table-->
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+  </div>
+
+
+  <footer id="footer" style="background-color: #ffffff!important;">
+    <div class="container d-md-flex py-4">
+      <div class="mr-md-auto text-center text-md-left">
+        <div class="copyright">
+          © Copyright <strong><span>recibos.com.ar</span></strong>. Todos los derechos reservados.
+        </div>
+        <div class="credits">
+          Desarrollado por <a href="mailto:info@mantenimientoweb.digital" target="blank_"
+            style="text-decoration:none;">info@mantenimientoweb.digital - Genco Mariano - Línea San Martín</a>
+        </div>
+
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="https://twitter.com/intent/tweet?text=conveniouf.com.ar" class="twitter"><i
+            class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=conveniouf.com.ar" class="facebook"><i
+            class="bx bxl-facebook"></i></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=conveniouf.com.ar&amp;title=&amp;summary=&amp;source="
+          class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="assets/js/formulas.js"></script>
+  <script type="text/javascript" src="assets/js/formula.js"></script>
+  <script type="text/javascript" src="assets/js/check.js"></script>
+  <script src="assets/js/sweetalert.min.js"></script>
+  <script src="assets/js/mf.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/7.0.0/math.min.js"></script>
+</body>
+
+</html>

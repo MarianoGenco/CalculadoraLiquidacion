@@ -1,0 +1,76 @@
+.a {
+  visibility: hidden;
+}
+
+.padre {
+  display: flex;
+  align-items: center;
+}
+
+.derecha {
+  float: right;
+}
+
+.nav {
+  margin-top: 40px;
+}
+
+body {
+  background-image: url(/assets/img/fondo.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #6aba9b;
+  margin: 0;
+  margin-bottom: 60px;
+}
+
+input,
+select {
+  cursor: pointer;
+}
+
+.opa {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.opa2 {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.panel-body {
+  padding-top: 25px;
+  font-size: 12px;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+footer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    min-height: 100%;
+    position: relative;
+  }
+  body {
+    margin: 0;
+    margin-bottom: 120px;
+  }
+  footer {
+    background-color: black;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+  }
+}
